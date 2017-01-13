@@ -88,7 +88,7 @@ module CASino::SessionsHelper
       render 'casino/sessions/service_not_allowed', status: 403
     else
       url = acquire_service_ticket(tgt, params[:service], options).service_with_ticket_url
-      redirect_to url, status: :see_other
+      redirect_to URI.decode(url), status: :see_other
     end
   end
 end
